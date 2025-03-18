@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    {{> poi-brand}}
+    <div class="navbar-burger p-3 mt-5" data-target="navMenu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </div>
+  </div>
+
+<script>
+const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+  $navbarBurgers.forEach(page => {
+    page.addEventListener("click", () => {
+       const target = page.dataset.target;
+       const $target = document.getElementById(target); 
+
+       page.classList.toggle("is-active");
+       $target.classList.toggle("is-active");
+
+    })
+});
+</script>

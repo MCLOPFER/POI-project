@@ -1,0 +1,17 @@
+{{> menu}}
+
+<section class="section p-2">
+  <div class="box has-text-centered mt-0 py-1">
+    <div class="columns has-text-centered mt-2">
+      <div class="column is-1">
+        <a class="button is-white" href="/dashboard">{{>icons/back}}</a>
+      </div>
+      <div class="column">
+        <div class="title mr-6 pr-6 is-capitalized">
+        {{point.name}} {{point.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{> list-pointDetails}}
+</section>

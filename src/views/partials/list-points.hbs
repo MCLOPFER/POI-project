@@ -1,0 +1,19 @@
+{{#each points}}
+ <div class="box has-text-centered mt-0 py-1" style="border-top-style: groove;">
+  <div class="columns m-0 has-text-left is-vcentered">
+    <div class="column is-1 pr-0 has-text-centered">
+      {{>icons/map-pin}}
+    </div>
+    <div class="column title is-size-4 is-uppercase pl-0 mb-0 ">
+      {{name}}
+    </div>
+    <div class="column is-1 has-text-centered is-vcentered">
+      <a href="/point/{{_id}}" class="button is-light">{{>icons/edit}}</a>
+    </div>
+    <div class="column is-1 has-text-centered">
+      <a href="/dashboard/deletepoint/{{_id}}" class="button is-light">{{>icons/delete}}</a>
+    </div>
+  </div>
+ </div>
+
+{{/each}}
