@@ -14,4 +14,12 @@ export const dashboardController = {
       return h.view("dashboard-view", viewData);
     },
   },
+
+  deletePoint: {
+    handler: async function (request, h) {
+      const point = await db.pointStore.getPointById(request.params.id);
+      await db.pointStore.deletePointById(point._id);
+      return h.redirect("/dashboard");
+    },
+  },
 };
