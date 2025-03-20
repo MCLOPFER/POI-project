@@ -18,12 +18,29 @@ export const pointDetailJsonStore = {
 
   async getPointDetailsByPointId(id) {
     await db.read();
-    return db.data.pointDetails.filter((pointDetail) => pointDetail.pointid === id);
+    let foundPointDetails = db.data.pointDetails.filter((pointDetail) => pointDetail.pointid === id);
+    if (!foundPointDetails) {
+      foundPointDetails = null;
+    }
+    return foundPointDetails;
   },
 
   async getPointDetailById(id) {
     await db.read();
-    return db.data.pointDetails.find((pointDetail) => pointDetail._id === id);
+    let foundPointDetail = db.data.pointDetails.find((pointDetail) => pointDetail._id === id);
+    if (!foundPointDetail) {
+      foundPointDetail = null;
+    }
+    return foundPointDetail;
+  },
+
+  async getPointPointDetails(pointId) {
+    await db.read();
+    let foundPointDetails = pointDetails.filter((pointDetail) => pointDetail.pointid === pointId);
+    if (!foundPointDetails) {
+      foundPointDetails = null;
+    }
+    return foundPointDetails;
   },
 
   async deletePointDetail(id) {
