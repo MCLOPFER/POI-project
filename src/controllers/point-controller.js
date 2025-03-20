@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { PointDetailSpec } from "../models/joi-schemas.js";
 
 export const pointController = {
   index: {
@@ -13,6 +14,13 @@ export const pointController = {
   },
 
   addPointDetail: {
+    validate: {
+      payload: PointDetailSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("point-view", { title: "Add point detail error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const point = await db.pointStore.getPointById(request.params.id);
       const newPointDetail = {
