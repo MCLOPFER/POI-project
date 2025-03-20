@@ -1,33 +1,39 @@
 {
   "users": [
     {
-      "firstName": "a",
-      "lastName": "a",
-      "email": "a@gmail.com",
-      "password": "a",
-      "_id": "bd030a10-c734-4d18-9fe0-8d941907ebe7"
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "_id": "abab646f-97e4-4d76-be1f-19e71df0cbf4"
     },
     {
-      "firstName": "b",
-      "lastName": "b",
-      "email": "b@gmail.com",
-      "password": "b",
-      "_id": "ed07cbe5-fb1c-46d7-a099-8449d82433d3"
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "_id": "ff56c772-f5be-484f-8cd4-3d49fbb19de8"
     },
     {
-      "firstName": "c",
-      "lastName": "c",
-      "email": "c@gmail.com",
-      "password": "c",
-      "_id": "1fb32f6f-78c6-44dd-9216-85d8160bbd0d"
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret",
+      "_id": "bb41ae1a-8feb-433c-8055-c3828335bad6"
     }
   ],
   "points": [
     {
-      "userid": "ed07cbe5-fb1c-46d7-a099-8449d82433d3",
-      "name": "b",
-      "description": "b",
-      "_id": "25e236b5-0d1b-40e9-9c16-d43cb327ebcc"
+      "name": "test",
+      "_id": "a357d2e1-ba71-4e8c-835f-0a4362f47180"
+    },
+    {
+      "name": "test2",
+      "_id": "d7448ac1-5bd8-4598-b84c-583c4a28d53e"
+    },
+    {
+      "name": "test3",
+      "_id": "c32600ec-f29f-46e5-a43d-35d891671dcd"
     }
   ],
   "pointDetails": []

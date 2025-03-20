@@ -19,16 +19,24 @@ export const pointDetailMemStore = {
   },
 
   async getPointDetailById(id) {
-    return pointDetails.find((pointDetail) => pointDetail._id === id);
+    let foundPointDetail = pointDetails.find((pointDetail) => pointDetail._id === id);
+    if (!foundPointDetail) {
+      foundPointDetail = null;
+    }
+    return foundPointDetail;
   },
 
   async getPointPointDetails(pointId) {
-    return pointDetails.filter((pointDetail) => pointDetail.pointid === pointId);
+    let foundPointDetails = pointDetails.filter((pointDetail) => pointDetail.pointid === pointId);
+    if (!foundPointDetails) {
+      foundPointDetails = null;
+    }
+    return foundPointDetails;
   },
 
   async deletePointDetail(id) {
     const index = pointDetails.findIndex((pointDetail) => pointDetail._id === id);
-    pointDetails.splice(index, 1);
+    if (index !== -1) pointDetails.splice(index, 1);
   },
 
   async deleteAllPointDetails() {

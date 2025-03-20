@@ -3,9 +3,10 @@ import { db } from "./store-utils.js";
 import { pointDetailJsonStore } from "./pointDetail-json-store.js";
 
 export const pointJsonStore = {
+  
   async getAllPoints() {
     await db.read();
-    return db.data.point;
+    return db.data.points;
   },
 
   async addPoint(point) {
@@ -18,8 +19,12 @@ export const pointJsonStore = {
 
   async getPointById(id) {
     await db.read();
-    const list = db.data.points.find((point) => point._id === id);
-    list.pointDetails = await pointDetailJsonStore.getPointDetailsByPointId(list._id);
+    let list = db.data.points.find((point) => point._id === id);
+    if (list) {
+      list.pointDetails = await pointDetailJsonStore.getPointDetailsByPointId(list._id);
+    } else {
+      list = null;
+    }
     return list;
   },
 
@@ -31,7 +36,7 @@ export const pointJsonStore = {
   async deletePointById(id) {
     await db.read();
     const index = db.data.points.findIndex((point) => point._id === id);
-    db.data.points.splice(index, 1);
+    if (index !== -1) db.data.points.splice(index, 1);
     await db.write();
   },
 

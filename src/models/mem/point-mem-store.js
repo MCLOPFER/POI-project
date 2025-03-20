@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { pointDetailMemStore } from "./point-detail-mem-store.js";
+import { pointDetailMemStore } from "./pointDetail-mem-store.js";
 
 let points = [];
 
