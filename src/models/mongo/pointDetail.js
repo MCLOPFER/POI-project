@@ -2,15 +2,16 @@ import Mongoose from "mongoose";
 
 const { Schema } = Mongoose;
 
-const pointDetailSchema = new Schema({
+const commentSchema = new Schema({
   latitude: Number,
   longitude: Number,
   description: String,
   categories: String,
+  comment: String,
   pointid: {
     type: Schema.Types.ObjectId,
     ref: "POI",
   },
 });
 
-export const PointDetail = Mongoose.model("Point Details", pointDetailSchema);
+export const Comment = Mongoose.model("Comment - Point Details", commentSchema);

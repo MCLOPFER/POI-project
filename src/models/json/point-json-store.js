@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 import { db } from "./store-utils.js";
-import { pointDetailJsonStore } from "./pointDetail-json-store.js";
+import { commentJsonStore } from "./pointDetail-json-store.js";
 
 export const pointJsonStore = {
   
@@ -21,7 +21,7 @@ export const pointJsonStore = {
     await db.read();
     let list = db.data.points.find((point) => point._id === id);
     if (list) {
-      list.pointDetails = await pointDetailJsonStore.getPointDetailsByPointId(list._id);
+      list.comments = await commentJsonStore.getCommentsByPointId(list._id);
     } else {
       list = null;
     }

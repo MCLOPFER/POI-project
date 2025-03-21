@@ -1,0 +1,38 @@
+<form action="/point/{{point._id}}/addcomment" method="POST">
+  <div class="box has-text-centered has-background-success-light mx-6">
+    <div class="columns">
+      <div class="column">
+        <h1  class="subtitle has-text-weight-medium has-text-black ">
+          Comments
+        </h1>
+      </div>
+      <div class="column is-1 has-text-centered is-vcentered">
+        <button class="button is-success">{{>icons/plus}}</button>
+      </div>
+    </div>
+    <div class="field is-horizontal mb-6">
+      <div class="field-body">
+        <div class="field">
+          <input class="input" type="text" placeholder="Add a comment" name="comment">
+        </div>
+      </div>
+    </div>
+    {{#each point.comments}}
+    <div class="box has-text-justified is-vcentered mt-4">
+      <div class="columns is-vcentered">
+        <div class="column is-1 has-text-centered is-vcentered">
+         {{>icons/comment}}
+        </div>
+        <div class="column  is-vcentered>">
+          {{comment}}
+        </div>
+        <div class="column is-1 has-text-centered">
+          <a class="button is-white" href="/point/{{../point._id}}/deletecomment/{{_id}}">{{>icons/delete}}</a>
+        </div>
+      </div>
+    </div>
+    {{else}}
+    <p class="has-text-centered">No comments added yet</p>
+    {{/each}}
+  </div>
+</form>

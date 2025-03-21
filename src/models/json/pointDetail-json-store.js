@@ -1,63 +1,63 @@
 import { v4 } from "uuid";
 import { db } from "./store-utils.js";
 
-export const pointDetailJsonStore = {
-  async getAllPointDetails() {
+export const commentJsonStore = {
+  async getAllComments() {
     await db.read();
-    return db.data.pointDetails;
+    return db.data.comments;
   },
 
-  async addPointDetail(pointId, pointDetail) {
+  async addComment(pointId, comment) {
     await db.read();
-    pointDetail._id = v4();
-    pointDetail.pointid = pointId;
-    db.data.pointDetails.push(pointDetail);
+    comment._id = v4();
+    comment.pointid = pointId;
+    db.data.comments.push(comment);
     await db.write();
-    return pointDetail;
+    return comment;
   },
 
-  async getPointDetailsByPointId(id) {
+  async getCommentsByPointId(id) {
     await db.read();
-    let foundPointDetails = db.data.pointDetails.filter((pointDetail) => pointDetail.pointid === id);
-    if (!foundPointDetails) {
-      foundPointDetails = null;
+    let foundComments = db.data.comments.filter((comment) => comment.pointid === id);
+    if (!foundComments) {
+      foundComments = null;
     }
-    return foundPointDetails;
+    return foundComments;
   },
 
-  async getPointDetailById(id) {
+  async getCommentById(id) {
     await db.read();
-    let foundPointDetail = db.data.pointDetails.find((pointDetail) => pointDetail._id === id);
-    if (!foundPointDetail) {
-      foundPointDetail = null;
+    let foundComment = db.data.comments.find((comment) => comment._id === id);
+    if (!foundComment) {
+      foundComment = null;
     }
-    return foundPointDetail;
+    return foundComment;
   },
 
-  async getPointPointDetails(pointId) {
+  async getPointComments(pointId) {
     await db.read();
-    let foundPointDetails = pointDetails.filter((pointDetail) => pointDetail.pointid === pointId);
-    if (!foundPointDetails) {
-      foundPointDetails = null;
+    let foundComments = comments.filter((comment) => comment.pointid === pointId);
+    if (!foundComments) {
+      foundComments = null;
     }
-    return foundPointDetails;
+    return foundComments;
   },
 
-  async deletePointDetail(id) {
+  async deleteComment(id) {
     await db.read();
-    const index = db.data.pointDetails.findIndex((pointDetail) => pointDetail._id === id);
-    db.data.pointDetails.splice(index, 1);
-    await db.write();
-  },
-
-  async deleteAllPointDetails() {
-    db.data.pointDetails = [];
+    const index = db.data.comments.findIndex((comment) => comment._id === id);
+    db.data.comments.splice(index, 1);
     await db.write();
   },
 
-  async updatePointDetail(pointDetail, updatedPointDetail) {
-    pointDetail.description = updatedPointDetail.description;
-    pointDetail.categories = updatedPointDetail.categories;
+  async deleteAllComments() {
+    db.data.comments = [];
+    await db.write();
+  },
+
+  async updateComment(comment, updatedComment) {
+    comment.description = updatedComment.description;
+    comment.categories = updatedComment.categories;
     await db.write();
   },
 };

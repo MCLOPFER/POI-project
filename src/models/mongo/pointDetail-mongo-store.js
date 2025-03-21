@@ -1,49 +1,49 @@
 import Mongoose from "mongoose";
-import { PointDetail } from "./pointDetail.js";
+import { Comment } from "./pointDetail.js";
 import { Point } from "./point.js";
 
-export const pointDetailMongoStore = {
-  async getAllPointDetails() {
-    const pointDetails = await PointDetail.find().lean();
-    return pointDetails;
+export const commentMongoStore = {
+  async getAllComments() {
+    const comments = await Comment.find().lean();
+    return comments;
   },
 
-  async addPointDetail(pointId, pointDetail) {
-    pointDetail.pointid = pointId;
-    const newPointDetail = new PointDetail(pointDetail);
-    const pointDetailObj = await newPointDetail.save();
-    return this.getPointDetailById(pointDetailObj._id);
+  async addComment(pointId, comment) {
+    comment.pointid = pointId;
+    const newComment = new Comment(comment);
+    const commentObj = await newComment.save();
+    return this.getCommentById(commentObj._id);
   },
 
-  async getPointDetailsByPointId(id) {
-    const pointDetails = await PointDetail.find({ pointid: id }).lean();
-    return pointDetails;
+  async getCommentsByPointId(id) {
+    const comments = await Comment.find({ pointid: id }).lean();
+    return comments;
   },
 
-  async getPointDetailById(id) {
+  async getCommentById(id) {
     if (Mongoose.isValidObjectId(id)) {
-      const pointDetail = await PointDetail.findOne({ _id: id }).lean();
-      return pointDetail;
+      const comment = await Comment.findOne({ _id: id }).lean();
+      return comment;
     }
     return null;
   },
 
-  async deletePointDetail(id) {
+  async deleteComment(id) {
     try {
-      await PointDetail.deleteOne({ _id: id });
+      await Comment.deleteOne({ _id: id });
     } catch (error) {
       console.log("bad id");
     }
   },
 
-  async deleteAllPointDetails() {
-    await PointDetail.deleteMany({});
+  async deleteAllComments() {
+    await Comment.deleteMany({});
   },
 
-  async updatePointDetail(pointDetail, updatedPointDetail) {
-    const pointDetailDoc = await PointDetail.findOne({ _id: pointDetail._id });
-    pointDetailDoc.description = updatedPointDetail.description;
-    pointDetailDoc.categories = updatedPointDetail.categories;
-    await pointDetailDoc.save();
+  async updateComment(comment, updatedComment) {
+    const commentDoc = await Comment.findOne({ _id: comment._id });
+    commentDoc.description = updatedComment.description;
+    commentDoc.categories = updatedComment.categories;
+    await commentDoc.save();
   },
 };
