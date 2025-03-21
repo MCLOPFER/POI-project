@@ -1,11 +1,15 @@
 import { assert } from "chai";
+import { EventEmitter } from "events";
 import { db } from "../src/models/db.js";
 import { downhillBeach, testPoints } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
+
+EventEmitter.setMaxListeners(25);
 
 suite("Point Model tests", () => {
 
   setup(async () => {
-    db.init("json");
+    db.init("mongo");
     await db.pointStore.deleteAllPoints();
     for (let i = 0; i < testPoints.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
@@ -15,7 +19,7 @@ suite("Point Model tests", () => {
 
   test("create a point", async () => {
     const point = await db.pointStore.addPoint(downhillBeach);
-    assert.equal(downhillBeach, point);
+    assertSubset(downhillBeach, point);
     assert.isDefined(point._id);
   });
 
@@ -30,7 +34,7 @@ suite("Point Model tests", () => {
   test("get a point - success", async () => {
     const point = await db.pointStore.addPoint(downhillBeach);
     const returnedPoint = await db.pointStore.getPointById(point._id);
-    assert.equal(downhillBeach, point);
+    assertSubset(downhillBeach, point);
   });
 
   test("delete One Playist - success", async () => {

@@ -21,14 +21,16 @@ export const findController = {
       payload: PointSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("dashboard-view", { title: "Add Point error", errors: error.details }).takeover().code(400);
+        return h.view("find-view", { title: "Add Point error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
       const newPoint = {
         userid: loggedInUser._id,
-        name: request.payload.name
+        name: request.payload.name,
+        country: request.payload.country,
+        description: request.payload.description
       };
       await db.pointStore.addPoint(newPoint);
       return h.redirect("/dashboard");
