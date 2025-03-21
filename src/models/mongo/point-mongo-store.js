@@ -1,6 +1,6 @@
 import Mongoose from "mongoose";
 import { Point } from "./point.js";
-import { pointDetailMongoStore } from "./pointDetail-mongo-store.js";
+import { commentMongoStore } from "./pointDetail-mongo-store.js";
 
 export const pointMongoStore = {
   async getAllPoints() {
@@ -12,7 +12,7 @@ export const pointMongoStore = {
     if (Mongoose.isValidObjectId(id)) {
       const point = await Point.findOne({ _id: id }).lean();
       if (point) {
-        point.pointDetails = await pointDetailMongoStore.getPointDetailsByPointId(point._id);
+        point.comments = await commentMongoStore.getCommentsByPointId(point._id);
       }
       return point;
     }

@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { pointDetailMemStore } from "./pointDetail-mem-store.js";
+import { commentMemStore } from "./pointDetail-mem-store.js";
 
 let points = [];
 
@@ -16,7 +16,7 @@ export const pointMemStore = {
 
   async getPointById(id) {
     const list = points.find((point) => point._id === id);
-    list.pointDetails = await pointDetailMemStore.getPointDetailsByPointId(list._id);
+    list.comments = await commentMemStore.getCommentsByPointId(list._id);
     return list;
   },
 

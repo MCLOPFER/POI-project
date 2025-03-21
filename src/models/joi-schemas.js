@@ -20,8 +20,15 @@ export const PointSpec = {
 
 };
 
+export const CommentSpec = {
+  comment: Joi.string().required()
+};
+
+// export const ImageSpec = {
+//   image: Joi.
+// }
+
 export const PointDetailSpec = {
   description: Joi.string().optional(),
-  categories: Joi.string().optional(),
-  coment: Joi.string().optional()
+  categories: Joi.string().optional()
 };

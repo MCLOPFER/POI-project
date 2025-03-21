@@ -1,33 +1,42 @@
-<div  style="border-top-style: ridge;">
-  <div class="box has-background-success-light mt-5 mx-6">
-    <div class="field-body has-text-centered is-vcentered">
-      <div class="field">
-        <label class="label mt-5">Longitude</label>
-        <input class="input has-background-white has-text-centered has-text-weight-bold" type="text" placeholder="-" name="longitude" disabled>
+<div  class="pt-6" style="border-top-style: ridge;">
+  <div class="has-background-success py-4 mx-6">
+    <div class="box has-background-success-light mt-5 mx-6">
+      <div class="field-body has-text-centered is-vcentered">
+        <div class="field">
+          <label class="label mt-5">Longitude</label>
+          <input class="input has-background-white has-text-centered has-text-weight-bold" type="text" placeholder="-" name="longitude" disabled>
+        </div>
+        <div class="field">
+          <label class="label mt-5">Latitude</label>
+          <input class="input has-background-white has-text-black has-text-centered has-text-weight-bold" type="text" placeholder="-" name="latitude" disabled>
+        </div>
       </div>
-      <div class="field">
-        <label class="label mt-5">Latitude</label>
-        <input class="input has-background-white has-text-black has-text-centered has-text-weight-bold" type="text" placeholder="-" name="latitude" disabled>
+    </div>
+    <div class="box has-text-centered has-background-success-light mt-5 mx-6">
+      <h1  class="subtitle has-text-weight-medium has-text-black">
+        Description
+      </h1>
+      <p class="has-text-black has-text-weight-light">
+        {{#if point.description}}
+        {{point.description}}
+        {{else}}
+        <p class="has-text-centered">No description added yet</p>
+        {{/if}}
+      </p>
+    </div>
+    <div class="box has-text-centered has-background-success-light mb-5 mx-6">
+      <h1  class="subtitle has-text-weight-medium has-text-black">
+        Categories
+      </h1>
+      <div class="card-content">
+
       </div>
     </div>
   </div>
   <div class="box has-text-centered has-background-success-light mt-5 mx-6">
-    <h1  class="subtitle has-text-weight-medium has-text-black">
-      Description
-    </h1>
-    <p class="has-text-black has-text-weight-light">
-      {{point.description}}
-    </p>
-  </div>
-  <div class="box has-text-centered has-background-success-light mx-6">
-    <h1  class="subtitle has-text-weight-medium has-text-black">
-      Categories
-    </h1>
-  </div>
-  <div class="box has-text-centered has-background-success-light mx-6">
     <div class="columns">
       <div class="column">
-        <h1  class="subtitle has-text-weight-medium has-text-black pl-6 ml-6">
+        <h1  class="subtitle has-text-weight-medium has-text-black">
           Images
         </h1>
       </div>
@@ -36,15 +45,5 @@
       </div>
     </div>
   </div>
-  <div class="box has-text-centered has-background-success-light mx-6">
-    <div class="columns">
-      <div class="column">
-        <h1  class="subtitle has-text-weight-medium has-text-black pl-6 ml-6">
-          Comments
-        </h1>
-      </div>
-      <div class="column is-1 has-text-centered is-vcentered">
-        <a href="/point/{{_id}}" class="button is-success">{{>icons/plus}}</a>
-      </div>
-  </div>
+  {{> comment}}
 </div>

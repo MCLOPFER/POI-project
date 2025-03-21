@@ -21,5 +21,6 @@ export const webRoutes = [
   { method: "GET", path: "/dashboard/deletepoint/{id}", config: dashboardController.deletePoint },
 
   { method: "GET", path: "/point/{id}", config: pointController.index },
-  { method: "POST", path: "/point/{id}/addComment", config: pointController.addComment },
+  { method: "POST", path: "/point/{id}/addcomment", config: pointController.addComment },
+  { method: "GET", path: "/point/{id}/deletecomment/{commentid}", config: pointController.deleteComment },
 ];

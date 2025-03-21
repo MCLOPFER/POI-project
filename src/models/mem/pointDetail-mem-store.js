@@ -1,50 +1,50 @@
 import { v4 } from "uuid";
 
-let pointDetails = [];
+let comments = [];
 
-export const pointDetailMemStore = {
-  async getAllPointDetails() {
-    return pointDetails;
+export const commentMemStore = {
+  async getAllComments() {
+    return comments;
   },
 
-  async addPointDetail(pointId, pointDetail) {
-    pointDetail._id = v4();
-    pointDetail.pointid = pointId;
-    pointDetails.push(pointDetail);
-    return pointDetail;
+  async addComment(pointId, comment) {
+    comment._id = v4();
+    comment.pointid = pointId;
+    comments.push(comment);
+    return comment;
   },
 
-  async getPointDetailsByPointId(id) {
-    return pointDetails.filter((pointDetail) => pointDetail.pointid === id);
+  async getCommentsByPointId(id) {
+    return comments.filter((comment) => comment.pointid === id);
   },
 
-  async getPointDetailById(id) {
-    let foundPointDetail = pointDetails.find((pointDetail) => pointDetail._id === id);
-    if (!foundPointDetail) {
-      foundPointDetail = null;
+  async getCommentById(id) {
+    let foundComment = comments.find((comment) => comment._id === id);
+    if (!foundComment) {
+      foundComment = null;
     }
-    return foundPointDetail;
+    return foundComment;
   },
 
-  async getPointPointDetails(pointId) {
-    let foundPointDetails = pointDetails.filter((pointDetail) => pointDetail.pointid === pointId);
-    if (!foundPointDetails) {
-      foundPointDetails = null;
+  async getPointComments(pointId) {
+    let foundComments = comments.filter((comment) => comment.pointid === pointId);
+    if (!foundComments) {
+      foundComments = null;
     }
-    return foundPointDetails;
+    return foundComments;
   },
 
-  async deletePointDetail(id) {
-    const index = pointDetails.findIndex((pointDetail) => pointDetail._id === id);
-    if (index !== -1) pointDetails.splice(index, 1);
+  async deleteComment(id) {
+    const index = comments.findIndex((comment) => comment._id === id);
+    if (index !== -1) comments.splice(index, 1);
   },
 
-  async deleteAllPointDetails() {
-    pointDetails = [];
+  async deleteAllComments() {
+    comments = [];
   },
 
-  async updatePointDetail(pointDetail, updatedpointDetail) {
-    pointDetail.description = updatedpointDetail.description;
-    pointDetail.categories = updatedpointDetail.categories;
-  },
+  // async updateComment(comment, updatedcomment) {
+  //   comment.description = updatedcomment.description;
+  //   comment.categories = updatedcomment.categories;
+  // },
 };
