@@ -1,5 +1,5 @@
 {{#each points}}
- <div class="has-text-centered mt-4 py-1" style="border-top-style: ridge">
+<div class="has-text-centered mt-4 py-1" style="border-top-style: ridge">
   <div class="columns m-0 has-text-left is-vcentered">
     <div class="column is-1 pr-0 has-text-centered">
       {{>icons/map-pin}}
@@ -14,6 +14,7 @@
       <a href="/dashboard/deletepoint/{{_id}}" class="button is-white">{{>icons/delete}}</a>
     </div>
   </div>
- </div>
-
+</div>
+{{else}}
+<p class="subtitle has-text-centered pt-6" style="border-top-style: ridge">No content added yet</p>
 {{/each}}

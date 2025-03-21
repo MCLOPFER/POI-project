@@ -13,17 +13,15 @@ export const UserCredentialsSpec = {
 };
 
 
-export const PointDetailSpec = {
-  name: Joi.string().required(),
-  longitude: Joi.string().optional(),
-  latitude: Joi.string().optional(),
-  description: Joi.string().optional(),
-  categories: Joi.string().optional()
-};
-
 export const PointSpec = {
   name: Joi.string().required(),
-  latitude: Joi.string().optional(),
-  longitude: Joi.string().optional(),
+  country: Joi.string().required(),
+  description: Joi.string().allow("").optional()
+
+};
+
+export const PointDetailSpec = {
   description: Joi.string().optional(),
+  categories: Joi.string().optional(),
+  coment: Joi.string().optional()
 };

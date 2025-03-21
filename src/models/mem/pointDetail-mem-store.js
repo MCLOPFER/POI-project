@@ -44,6 +44,7 @@ export const pointDetailMemStore = {
   },
 
   async updatePointDetail(pointDetail, updatedpointDetail) {
-    pointDetail.name = updatedpointDetail.title;
+    pointDetail.description = updatedpointDetail.description;
+    pointDetail.categories = updatedpointDetail.categories;
   },
 };

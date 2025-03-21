@@ -1,9 +1,16 @@
 {{#if errors}}
   <div class="content">
-    <p> There was a problem... </p>
+     <div class="columns is-vcentered mb-0 mt-6">
+    <div class="column is-1 has-text-centered mt-1">
+      {{>icons/error}}
+    </div>
+    <div class="column has-text-danger">
+      ERROR! Invalid details entered
+    </div>
+  </div>
     <ul>
       {{#each errors}}
-        <li>{{message}}</li>
+        <li class="has-text-danger">{{message}}</li>
       {{/each}}
     </ul>
   </div>

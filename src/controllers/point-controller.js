@@ -13,7 +13,7 @@ export const pointController = {
     },
   },
 
-  addPointDetail: {
+  addComment: {
     validate: {
       payload: PointDetailSpec,
       options: { abortEarly: false },
@@ -24,10 +24,9 @@ export const pointController = {
     handler: async function (request, h) {
       const point = await db.pointStore.getPointById(request.params.id);
       const newPointDetail = {
-        name: request.payload.name,
         description: request.payload.description,
-        longitude: Number(request.payload.longitude),
-        latitude: Number(request.payload.latitude)
+        categories: request.payload.categories,
+        comment: request.payload.comment
       };
       await db.pointDetailStore.addPointDetail(point._id, newPointDetail);
       return h.redirect(`/point/${point._id}`);
