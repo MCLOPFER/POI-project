@@ -6,18 +6,18 @@ import { validationError } from "./logger.js";
 export const userApi = {
   find: {
     auth: false,
-    handler: async function (request, h) {
+    handler: async function(request, h) {
       try {
         const users = await db.userStore.getAllUsers();
         return users;
       } catch (err) {
-        return Boom.serverUnavailable("Database Error:", err);
+        return Boom.serverUnavailable("Database Error");
       }
     },
     tags: ["api"],
     description: "Get all userApi",
     notes: "Returns details of all userApi",
-    response: { schema: UserArray, failAction: validationError },
+    response: { schema: UserArray, failAction: validationError }
   },
 
   findOne: {

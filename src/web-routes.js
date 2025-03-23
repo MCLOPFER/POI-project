@@ -26,6 +26,9 @@ export const webRoutes = [
   { method: "GET", path: "/point/{id}/deleteallcomments", config: pointController.deleteAllComments },
 
   { method: "GET", path: "/point/{id}/editpoint", config: pointController.editPoint },
-  { method: "POST", path: "/point/{id}/updatepoint", config: pointController.updatePoint }
+  { method: "POST", path: "/point/{id}/updatepoint", config: pointController.updatePoint },
+
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
+
 
 ];
