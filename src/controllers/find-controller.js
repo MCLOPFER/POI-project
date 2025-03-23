@@ -29,7 +29,6 @@ export const findController = {
       const newPoint = {
         userid: loggedInUser._id,
         name: request.payload.name,
-        country: request.payload.country,
         description: request.payload.description,
         categories: request.payload.categories
       };

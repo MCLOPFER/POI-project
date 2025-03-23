@@ -1,3 +1,5 @@
+export const serviceUrl = "http://localhost:3000";
+
 export const maggie = {
   firstName: "Maggie",
   lastName: "Simpson",
@@ -35,6 +37,12 @@ export const woodstock = {
 export const woodstockComment = {
   comment: "Worth visiting. My brother & myself visited today (May 11) & it was a delightful experience enhanced by the member of staff who went way over & above to show us around & give us the history of the estate. Pity it isn't publicised more - we only discovered it by accident. It is really worth a visit."
 };
+
+export const curracloeBeach = {
+  name: "Curracloe Beach",
+  country: "Ireland",
+  description: "Impressive sand dunes, gentle lapping waves and soft golden sand that stretches farther than the eye can see are just some of the reasons why Curracloe Beach is a hit with the locals and on the big screen. This picturesque strand has starred in award-winning films Saving Private Ryan and Brooklyn. It’s a great spot to catch a wave or two – head over to the Surf Shack for rentals, surfing lessons and stand-up paddleboarding."
+}
 
 export const testPoints = [
   {
