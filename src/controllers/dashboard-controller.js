@@ -22,4 +22,12 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
+
+  deleteAllPoints: {
+    handler: async function (request, h) {
+      console.log("Deleting all points")
+      await db.pointStore.deleteAllPoints();
+      return h.redirect("/dashboard");
+   }
+  },
 };
