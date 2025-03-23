@@ -4,9 +4,9 @@ const { Schema } = Mongoose;
 
 const pointSchema = new Schema({
   name: String,
-  country: String,
+  latitude: Number,
+  longitude: Number,
   description: String,
-  categories: String,
   userid: {
     type: Schema.Types.ObjectId,
     ref: "User",

@@ -14,12 +14,11 @@ export const UserSpec = UserCredentialsSpec.keys({
   lastName: Joi.string().example("Simpson").required(),
 }).label("UserDetails");
 
-export const UserUpdateSpec = Joi.object()
+export const UpdateUserSpec = Joi.object()
   .keys({
-    firstName: Joi.string().example("Homer").required(),
-    lastName: Joi.string().example("Simpson").required(),
-    email: Joi.string().email().example("homer@simpsons.com").required(),
-    password: Joi.string().example("secret").required(),
+    firstName: Joi.string().example("Homer").optional(),
+    lastName: Joi.string().example("Simpson").optional(),
+    email: Joi.string().email().example("homer@simpsons.com").optional()
   })
   .label("User Update");
 
@@ -47,9 +46,10 @@ export const CommentSpec = Joi.object()
   export const PointSpec = Joi.object()
     .keys({
       name: Joi.string().required().example("Millennium Forest"),
-      description: Joi.string().required().example("This is a Millennium forest consisting of about 90 ha. The wood used to be semi-mature conifer woodland. There are 6 ha of oak woodlands over 100 years old. In recent years the park has been replanted with sessile oak, ash, birch, cherry and spindle as part of the Millennium forest project. Other flora to look out for are the bluebells that grow under the oak woodland. Proximity to Kilkenny means that the area is very popular with local towns people for walking. Coill an Fhailtaigh is a Millennium Forest."),
-      userid: IdSpec,
-      comments: CommentArraySpec,
+      latitude: Joi.number().required().example(53.49547),
+      longitude: Joi.number().required().example(-7.9112),
+      description: Joi.string().allow("").optional().example("This is a Millennium forest consisting of about 90 ha. The wood used to be semi-mature conifer woodland. There are 6 ha of oak woodlands over 100 years old. In recent years the park has been replanted with sessile oak, ash, birch, cherry and spindle as part of the Millennium forest project. Other flora to look out for are the bluebells that grow under the oak woodland. Proximity to Kilkenny means that the area is very popular with local towns people for walking. Coill an Fhailtaigh is a Millennium Forest."),
+      userid: IdSpec
     })
     .label("Point");
   
