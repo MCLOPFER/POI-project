@@ -93,7 +93,7 @@ To stop the project, enter Ctrl-C in the terminal.
 ## How access it
 You would just need internet and a device where you can open the following link: 
 <br/>
-LINK
+[Glitch Deployment](https://secretive-same-python.glitch.me/)
 
 ## Source Attributions
 - Icons: https://fontawesome.com/
