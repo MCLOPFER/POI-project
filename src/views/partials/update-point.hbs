@@ -1,0 +1,16 @@
+<form action="/point/{{point._id}}/updatepoint" method="POST">
+  <div class="box has-text-centered has-background-success-light mt-6 ml-5">
+    <h1  class="subtitle has-text-weight-medium has-text-black">
+      Description
+    </h1>
+    <input class="input" type="text" value="{{point.description}}" name="description">
+  </div>
+  <div class="box has-text-centered has-background-success-light mb-5 ml-5">
+    <h1  class="subtitle has-text-weight-medium has-text-black">
+      Categories
+    </h1>
+    <h2 class="mb-6">Please select from the categories below</h2>
+    {{> categories}}
+  </div>
+  <button class="button is-fullwidth is-black is-rounded is-outlined mt-6" href="/point/{{point._id}}">Save</button>
+</form>

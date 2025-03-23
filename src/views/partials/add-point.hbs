@@ -23,5 +23,11 @@
     <label class="label has-text-centered mt-5">Description</label>
     <input class="input" type="text" placeholder="Optional" name="description">
   </div>
-  <button class="button is-fullwidth is-black is-rounded is-outlined" href="/dashboard">{{>icons/plus}}</button>
+  <div class="field">
+    <label class="label has-text-centered mt-5 mb-5">Categories</label>
+    <div class="box" style="outline-style: solid; outline-width: thin; outline-color: rgb(224,224,224);">
+      {{> categories}}
+    </div>
+  </div>
+  <button class="button is-fullwidth is-black is-rounded is-outlined mt-5" href="/dashboard">{{>icons/plus}}</button>
 </form>

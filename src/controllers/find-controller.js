@@ -30,7 +30,8 @@ export const findController = {
         userid: loggedInUser._id,
         name: request.payload.name,
         country: request.payload.country,
-        description: request.payload.description
+        description: request.payload.description,
+        categories: request.payload.categories
       };
       await db.pointStore.addPoint(newPoint);
       return h.redirect("/dashboard");

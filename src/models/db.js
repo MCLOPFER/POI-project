@@ -12,13 +12,13 @@ import { commentJsonStore } from "./json/pointDetail-json-store.js";
 
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { pointMongoStore } from "./mongo/point-mongo-store.js";
-import { commentMongoStore } from "./mongo/pointDetail-mongo-store.js";
+import { commentMongoStore } from "./mongo/comment-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
 export const db = {
   userStore: null,
   pointStore: null,
-  pointDetailStore: null,
+  commentStore: null,
 
   init(storeType) {
     switch (storeType) {

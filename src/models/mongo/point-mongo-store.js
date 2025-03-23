@@ -1,8 +1,9 @@
 import Mongoose from "mongoose";
 import { Point } from "./point.js";
-import { commentMongoStore } from "./pointDetail-mongo-store.js";
+import { commentMongoStore } from "./comment-mongo-store.js";
 
 export const pointMongoStore = {
+  
   async getAllPoints() {
     const points = await Point.find().lean();
     return points;
@@ -30,6 +31,13 @@ export const pointMongoStore = {
     return point;
   },
 
+  async updatePoint(point, updatedPoint) {
+    const pointDoc = await Point.findOne({ _id: point._id });
+    pointDoc.description = updatedPoint.description;
+    pointDoc.categories = updatedPoint.categories;
+    await pointDoc.save();
+  },
+
   async deletePointById(id) {
     try {
       await Point.deleteOne({ _id: id });
@@ -41,4 +49,6 @@ export const pointMongoStore = {
   async deleteAllPoints() {
     await Point.deleteMany({});
   }
+
+
 };

@@ -1,8 +1,8 @@
 import { assert } from "chai";
 import { EventEmitter } from "events";
-import { db } from "../src/models/db.js";
-import { downhillBeach, testPoints } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { testPoints, woodstock } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 EventEmitter.setMaxListeners(25);
 
@@ -18,8 +18,8 @@ suite("Point Model tests", () => {
   });
 
   test("create a point", async () => {
-    const point = await db.pointStore.addPoint(downhillBeach);
-    assertSubset(downhillBeach, point);
+    const point = await db.pointStore.addPoint(woodstock);
+    assertSubset(woodstock, point);
     assert.isDefined(point._id);
   });
 
@@ -32,9 +32,9 @@ suite("Point Model tests", () => {
   });
 
   test("get a point - success", async () => {
-    const point = await db.pointStore.addPoint(downhillBeach);
+    const point = await db.pointStore.addPoint(woodstock);
     const returnedPoint = await db.pointStore.getPointById(point._id);
-    assertSubset(downhillBeach, point);
+    assertSubset(woodstock, point);
   });
 
   test("delete One Playist - success", async () => {
