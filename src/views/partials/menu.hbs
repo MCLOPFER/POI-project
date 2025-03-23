@@ -1,0 +1,21 @@
+{{>navbar-burger}}
+
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a id="find" class="button is-rounded" href="/find"> Find a location </a>
+          <a id="dashboard" class="button is-rounded" href="/dashboard"> Dashboard </a>
+          <a id="user" class="button is-rounded" href="/user/{{user._id}}"> User Account </a>
+          <a id="about" class="button is-rounded" href="/about"> About </a>
+          <a id="logout" class="button is-rounded" href="/logout"> Logout </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.getElementById("{{active}}").classList.add("is-success");
+</script>
+

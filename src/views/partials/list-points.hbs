@@ -1,0 +1,30 @@
+<div class="flex" style="height: 600px;" id="map"></div>
+{{> dashboard-map}}
+{{#each points}}
+<script>
+    var marker = L.marker([{{latitude}}, {{longitude}}]).addTo(map);
+</script>
+<div class="has-text-centered mt-4 py-1" style="border-top-style: ridge">
+  <div class="columns m-0 has-text-left is-vcentered">
+    <div class="column is-1 pr-0 has-text-centered">
+      {{>icons/map-pin}}
+    </div>
+    <div class="column title is-size-4 is-uppercase pl-0 mb-0 ">
+      {{name}}
+    </div>
+    <div class="column is-1 has-text-centered is-vcentered">
+      <a href="/point/{{_id}}" class="button is-white">{{>icons/edit}}</a>
+    </div>
+    <div class="column is-1 has-text-centered">
+      <a href="/dashboard/deletepoint/{{_id}}" class="button is-white">{{>icons/delete}}</a>
+    </div>
+  </div>
+</div>
+{{else}}
+<p class="subtitle has-text-centered pt-6" style="border-top-style: ridge">No content added yet</p>
+{{/each}}
+{{#if points}}
+<div class="has-text-centered">
+  <a class="button is-danger" href="/dashboard/{{user._id}}/deleteallpoints">Delete all points</a>
+</div>
+{{/if}}

@@ -1,0 +1,19 @@
+
+
+<div class="container has-text-centered"  style="border-bottom-style: groove; border-bottom-color: hsl(141, 53%, 53%);">
+  <a class="button is-fullwidth is-success is-rounded my-6" href="{{point._id}}/editpoint">{{>icons/edit}}</a>
+  <div class="box has-text-centered has-background-success-light mt-2">
+    <h1  class="subtitle has-text-weight-medium has-text-black">
+      Description
+    </h1>
+    <p class="has-text-black has-text-weight-light">
+      {{#if point.description}}
+      {{point.description}}
+      {{else}}
+      <p class="has-text-centered">No description added yet</p>
+      {{/if}}
+    </p>
+  </div>
+</div>
+{{> comments}}
+{{> addComment}}

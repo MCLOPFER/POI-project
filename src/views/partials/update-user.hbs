@@ -1,0 +1,20 @@
+
+<form class="container pt-0 mb-0" action="/user/{{user._id}}/update" method="POST">
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <label class="label mt-5">First Name</label>
+        <input class="input" type="text" placeholder="First Name" name="firstName" value="{{user.firstName}}">
+      </div>
+      <div class="field">
+        <label class="label mt-5">Last Name</label>
+        <input class="input" type="text" placeholder="Last Name" name="lastName" value="{{user.lastName}}">
+      </div>
+      <div class="field">
+        <label class="label mt-5">Email</label>
+        <input class="input" type="text" placeholder="Email" name="email" value="{{user.email}}">
+      </div>
+    </div>
+  </div>
+  <button id="update" class="button is-fullwidth has-text-black is-rounded is-success mt-6">Update User</button>
+</form>

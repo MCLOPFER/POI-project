@@ -1,0 +1,27 @@
+<form action="/find/addpoint" method="POST">
+  <div class="flex" style="height: 600px;" id="map">
+    {{> map}}
+  </div>
+  <div class="field is-horizontal mt-6">
+    <div class="field-body has-text-centered is-vcentered">
+      <div class="field">
+        <label class="label mt-5">Enter your point of interest</label>
+        <input class="input" type="text" placeholder="Required" name="name">
+      </div>
+      <div class="field">
+        <label class="label mt-5">Latitude</label>
+        <input id="latitude" class="input has-text-centered has-text-weight-bold" type="text" placeholder="-" name="latitude" readonly>
+      </div>
+      <div class="field">
+        <label class="label mt-5">Longitude</label>
+        <input id="longitude" class="input has-text-centered has-text-weight-bold" type="text" placeholder="-" name="longitude" readonly>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label has-text-centered mt-5">Description</label>
+    <input class="input" type="text" placeholder="Optional" name="description">
+  </div>
+  <button class="button is-fullwidth is-black is-rounded is-outlined mt-5" href="/dashboard">{{>icons/plus}}</button>
+</form>
+
