@@ -2,7 +2,6 @@ import { EventEmitter } from "events";
 import { assert } from "chai";
 import { poiService } from "./poi-service.js";
 import { assertSubset } from "../test-utils.js";
-
 import { maggie, woodstock, testPoints } from "../fixtures.js";
 
 EventEmitter.setMaxListeners(25);
@@ -11,9 +10,13 @@ suite("Point API tests", () => {
   let user = null;
 
   setup(async () => {
+    poiService.clearAuth();
+    user = await poiService.createUser(maggie);
+    await poiService.authenticate(maggie);
     await poiService.deleteAllPoints();
     await poiService.deleteAllUsers();
     user = await poiService.createUser(maggie);
+    await poiService.authenticate(maggie);
     woodstock.userid = user._id;
   });
 

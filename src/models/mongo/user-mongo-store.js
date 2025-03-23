@@ -9,7 +9,7 @@ export const userMongoStore = {
   },
 
   async getUserById(id) {
-    if (Mongoose.isValidObjectId(id)) {
+    if (id) {
       const user = await User.findOne({ _id: id }).lean();
       return user;
     }

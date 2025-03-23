@@ -42,9 +42,4 @@ export const commentMemStore = {
   async deleteAllComments() {
     comments = [];
   },
-
-  // async updateComment(comment, updatedcomment) {
-  //   comment.description = updatedcomment.description;
-  //   comment.categories = updatedcomment.categories;
-  // },
 };

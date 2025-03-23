@@ -1,5 +1,5 @@
 import axios from "axios";
-import { serviceUrl } from "../fixtures.js";
+import { maggie, serviceUrl } from "../fixtures.js";
 
 export const poiService = {
   poiUrl: serviceUrl,
@@ -15,8 +15,15 @@ export const poiService = {
   },
 
   async getAllUsers() {
-    const res = await axios.get(`${this.poiUrl}/api/users`);
-    return res.data;
+    try {
+      console.log("Getting all users")
+      const res = await axios.get(`${this.poiUrl}/api/users`);
+      console.log("Succesfully got all users")
+      return res.data;
+    } catch (e) {
+      console.log(`Failed to get all users, with error: ${e}`)
+      return null;
+    }
   },
 
   async deleteAllUsers() {
@@ -72,5 +79,15 @@ export const poiService = {
   async deleteComment(id) {
     const res = await axios.delete(`${this.poiUrl}/api/comments/${id}`);
     return res.data;
+  },
+
+  async authenticate(user) {
+    const response = await axios.post(`${this.poiUrl}/api/users/authenticate`, user);
+    axios.defaults.headers.common.Authorization = `Bearer ${  response.data.token}`;
+    return response.data;
+  },
+
+  async clearAuth() {
+    axios.defaults.headers.common.Authorization = "";
   },
 };
