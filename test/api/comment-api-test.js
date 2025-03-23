@@ -8,10 +8,14 @@ suite("Comment API tests", () => {
   let pointComments = null;
 
   setup(async () => {
+    poiService.clearAuth();
+    user = await poiService.createUser(maggie);
+    await poiService.authenticate(maggie);
     await poiService.deleteAllPoints();
     await poiService.deleteAllComments();
     await poiService.deleteAllUsers();
     user = await poiService.createUser(maggie);
+    await poiService.authenticate(maggie);
     woodstock.userid = user._id;
     pointComments = await poiService.createPoint(woodstock);
   });

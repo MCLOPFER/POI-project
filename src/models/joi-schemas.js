@@ -2,23 +2,33 @@ import Joi from "joi";
 
 export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).description("a valid ID");
 
-export const UserCredentialsSpec = {
-  email: Joi.string().email().required(),
-  password: Joi.string().required(),
-};
+export const UserCredentialsSpec = Joi.object()
+  .keys({
+    email: Joi.string().email().example("homer@simpson.com").required(),
+    password: Joi.string().example("secret").required(),
+  })
+  .label("UserCredentials");
 
-export const UserSpec = Joi.object()
+export const UserSpec = UserCredentialsSpec.keys({
+  firstName: Joi.string().example("Homer").required(),
+  lastName: Joi.string().example("Simpson").required(),
+}).label("UserDetails");
+
+export const UserUpdateSpec = Joi.object()
   .keys({
     firstName: Joi.string().example("Homer").required(),
     lastName: Joi.string().example("Simpson").required(),
-    email: Joi.string().email().example("homer@simpson.com").required(),
+    email: Joi.string().email().example("homer@simpsons.com").required(),
     password: Joi.string().example("secret").required(),
-    _id: IdSpec,
-    __v: Joi.number()
   })
-  .label("UserDetails");
+  .label("User Update");
 
-export const UserArray = Joi.array().items(UserSpec).label("UserArray");
+export const UserSpecPlus = UserSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("UserDetailsPlus");
+
+export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
 export const CommentSpec = Joi.object()
   .keys({
@@ -34,9 +44,6 @@ export const CommentSpec = Joi.object()
 
   export const CommentArraySpec = Joi.array().items(CommentSpecPlus).label("CommentArray");
 
-  export const UpdatePointSpec = {
-    description: Joi.string().allow("").optional()
-  };
   export const PointSpec = Joi.object()
     .keys({
       name: Joi.string().required().example("Millennium Forest"),
@@ -52,4 +59,15 @@ export const CommentSpec = Joi.object()
   }).label("PointPlus");
   
   export const PointArraySpec = Joi.array().items(PointSpecPlus).label("PointArray");
+  
+  export const UpdatePointSpec = {
+    description: Joi.string().allow("").optional()
+  };
+
+  export const JWTSpec = Joi.object()
+  .keys({
+    success: Joi.boolean().example("true").required(),
+    token: Joi.string().example("<JWT Token>").required(),
+  })
+  .label("JWTSpec");
   
