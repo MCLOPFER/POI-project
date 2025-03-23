@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { poiService } from "./poi-service.js";
-import { maggie, woodstock, testPoints, testComments, woodstockComment } from "../fixtures.js";
+import { maggie, woodstock, testComments, woodstockComment } from "../fixtures.js";
 
 suite("Comment API tests", () => {
   let user = null;
