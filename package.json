@@ -6,6 +6,9 @@
   "author": "",
   "type": "module",
   "main": "src/server.js",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "start": "node src/server.js",
     "lint": "./node_modules/.bin/eslint . --ext .js",
@@ -40,4 +43,5 @@
     "mongoose": "^8.12.1",
     "uuid": "^11.1.0"
   }
+  
 }
