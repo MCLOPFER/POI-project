@@ -4,11 +4,14 @@ import { CommentSpec, UpdatePointSpec } from "../models/joi-schemas.js";
 export const pointController = {
   index: {
     handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const user = await db.userStore.getUserById(loggedInUser._id);
       console.log("Rendering point controller index")
       const point = await db.pointStore.getPointById(request.params.id);
       const viewData = {
         title: "Point",
         point: point,
+        user: user,
       };
       return h.view("point-view", viewData); 
     },
@@ -16,11 +19,14 @@ export const pointController = {
 
   editPoint: {
     handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const user = await db.userStore.getUserById(loggedInUser._id);
       console.log("Editing place mark")
       const point = await db.pointStore.getPointById(request.params.id);
       const viewData = {
         title: "Edit Point",
         point: point,
+        user: user,
       };
       return h.view("edit-view", viewData);
     },
@@ -90,7 +96,6 @@ export const pointController = {
       const point = await db.pointStore.getPointById(request.params.id);
       const updatedPoint = {
         description: request.payload.description,
-        categories: request.payload.categories
       };
       await db.pointStore.updatePoint(point, updatedPoint);
       return h.redirect(`/point/${request.params.id}`);

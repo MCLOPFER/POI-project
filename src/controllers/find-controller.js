@@ -21,7 +21,6 @@ export const findController = {
       payload: PointSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        console.log(`REQUEST: ${request} ERRORS: ${error}`)
         return h.view("find-view", { title: "Add Point error", errors: error.details }).takeover().code(400);
       },
     },
@@ -32,7 +31,7 @@ export const findController = {
         name: request.payload.name,
         latitude: request.payload.latitude,
         longitude: request.payload.longitude,
-        description: request.payload.description
+        description: request.payload.description,
       };
       await db.pointStore.addPoint(newPoint);
       return h.redirect("/dashboard");
