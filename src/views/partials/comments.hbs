@@ -1,0 +1,25 @@
+<div class="box has-background-success-light mt-5">
+  <h1  class="subtitle has-text-weight-medium has-text-centered has-text-black">Comments</h1>
+  {{#each point.comments}}
+  <div class="box has-text-justified is-vcentered mt-4">
+    <div class="columns is-vcentered">
+      <div class="column is-1 has-text-centered is-vcentered">
+       {{>icons/comment}}
+      </div>
+      <div class="column  is-vcentered>">
+        {{comment}}
+      </div>
+      <div class="column is-1 has-text-centered">
+        <a class="button is-white" href="/point/{{../point._id}}/deletecomment/{{_id}}">{{>icons/delete}}</a>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <p class="has-text-centered">No comments added yet</p>
+  {{/each}}
+  {{#if point.comments}}
+  <div class="has-text-centered">
+    <a class="button is-danger" href="{{./point._id}}/deleteallcomments">Delete all comments</a>
+  </div>
+  {{/if}}
+</div>

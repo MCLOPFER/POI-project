@@ -3,7 +3,7 @@
   <div class="has-text-centered mb-4 mt-0 py-1">
     <div class="columns has-text-centered mt-2" style="border-bottom-style: ridge;">
       <div class="column is-1">
-        <a class="button is-white" href="/dashboard">{{>icons/back}}</a>
+        <a class="button is-white" href="/point/{{point._id}}">{{>icons/back}}</a>
       </div>
       <div class="column is-auto">
         <div class="title mr-6 pr-7 is-capitalized">
@@ -20,5 +20,5 @@
       </div>
     </div>
   </div>
-  {{> list-pointDetails}}
+  {{> update-point}}
 </section>

@@ -16,8 +16,11 @@ export const UserCredentialsSpec = {
 export const PointSpec = {
   name: Joi.string().required(),
   country: Joi.string().required(),
-  description: Joi.string().allow("").optional()
+  description: Joi.string().allow("").optional(),
+};
 
+export const UpdatePointSpec = {
+  description: Joi.string().allow("").optional()
 };
 
 export const CommentSpec = {
@@ -27,8 +30,3 @@ export const CommentSpec = {
 // export const ImageSpec = {
 //   image: Joi.
 // }
-
-export const PointDetailSpec = {
-  description: Joi.string().optional(),
-  categories: Joi.string().optional()
-};
