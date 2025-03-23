@@ -49,6 +49,7 @@ export const CommentSpec = Joi.object()
       latitude: Joi.number().required().example(53.49547),
       longitude: Joi.number().required().example(-7.9112),
       description: Joi.string().allow("").optional().example("This is a Millennium forest consisting of about 90 ha. The wood used to be semi-mature conifer woodland. There are 6 ha of oak woodlands over 100 years old. In recent years the park has been replanted with sessile oak, ash, birch, cherry and spindle as part of the Millennium forest project. Other flora to look out for are the bluebells that grow under the oak woodland. Proximity to Kilkenny means that the area is very popular with local towns people for walking. Coill an Fhailtaigh is a Millennium Forest."),
+      comments: CommentArraySpec,
       userid: IdSpec
     })
     .label("Point");

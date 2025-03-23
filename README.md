@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="public/images/placeMark-img.jpg" width="400" height="110"/>
+  <img src="public/images/placeMark-img.jpg" width="300" height="300"/>
 </p>
 <br/>
 
